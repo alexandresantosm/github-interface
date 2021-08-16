@@ -13,6 +13,7 @@ export const WrapperProfileImage = styled.img`
 `;
 
 export const WrapperProfileUserInfo = styled(WrapperProfile)`
+  height: 12rem;
   flex-direction: column;
   justify-content: space-between;
   margin-left: 0.5rem;
@@ -20,10 +21,11 @@ export const WrapperProfileUserInfo = styled(WrapperProfile)`
 
 export const WrapperProfileUsername = styled(WrapperProfile)`
   align-items: center;
+  margin-top: 0.5rem;
 
   a {
+    font-size: 1.25rem;
     color: #0080ff;
-    text-decoration: none;
     margin-left: 0.5rem;
   }
 `;
