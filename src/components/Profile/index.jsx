@@ -11,18 +11,19 @@ export const Profile = () => {
       />
 
       <S.WrapperProfileUserInfo>
-        <h1>Alexandre Santos</h1>
-
-        <S.WrapperProfileUsername>
-          <h3>Username:</h3>
-          <a
-            href="https://github.com/alexandresantosm"
-            target="_blank"
-            rel="noreferrer"
-          >
-            alexandresantosm
-          </a>
-        </S.WrapperProfileUsername>
+        <div>
+          <h1>Alexandre Santos</h1>
+          <S.WrapperProfileUsername>
+            <h3>Username:</h3>
+            <a
+              href="https://github.com/alexandresantosm"
+              target="_blank"
+              rel="noreferrer"
+            >
+              alexandresantosm
+            </a>
+          </S.WrapperProfileUsername>
+        </div>
 
         <S.WrapperProfileStatusCount>
           <S.WrapperProfileStatus>
