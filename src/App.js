@@ -1,7 +1,7 @@
 import { Layout } from "./components/Layout";
 import { Profile } from "./components/Profile";
 
-import { ResetCSS } from "./styles/resetCSS";
+import { GlobalStyles } from "./styles/global";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
         </Layout>
       </main>
 
-      <ResetCSS />
+      <GlobalStyles />
     </>
   );
 }
