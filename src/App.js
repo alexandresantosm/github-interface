@@ -1,5 +1,18 @@
+import { Layout } from "./components/Layout";
+import { Profile } from "./components/Profile";
+
 function App() {
-  return <h1>Hey ;)</h1>;
+  return (
+    <main>
+      <Layout>
+        <Profile />
+
+        <div>Repositories</div>
+
+        <div>Starred</div>
+      </Layout>
+    </main>
+  );
 }
 
 export default App;
