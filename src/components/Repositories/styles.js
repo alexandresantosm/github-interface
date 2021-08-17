@@ -67,7 +67,6 @@ export const WrapperTabPanel = styled(TabPanel)`
   height: 100%;
   padding: 1rem 0.5rem;
   border-top: 1px solid #ccc;
-  background-color: #fff;
   display: none;
 
   &.react-tabs__tab-panel--selected {
