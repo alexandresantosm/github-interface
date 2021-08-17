@@ -20,7 +20,13 @@ function App() {
   }
 
   return (
-    <Layout>{githubState.isLoading ? renderLoading() : renderContent()}</Layout>
+    <Layout>
+      {githubState.hasUser ? (
+        <>{githubState.isLoading ? renderLoading() : renderContent()}</>
+      ) : (
+        <div>Nenhum usuário pesquisado</div>
+      )}
+    </Layout>
   );
 }
 
