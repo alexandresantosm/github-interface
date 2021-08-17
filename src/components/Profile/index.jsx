@@ -1,8 +1,12 @@
 import React from "react";
+import { useGithub } from "../../hooks/GithubHooks";
 
 import * as S from "./styles";
 
 export const Profile = () => {
+  const { githubState } = useGithub();
+  const { user } = githubState;
+
   return (
     <S.WrapperProfile>
       <S.WrapperProfileImage
@@ -12,15 +16,11 @@ export const Profile = () => {
 
       <S.WrapperProfileUserInfo>
         <div>
-          <h1>Alexandre Santos</h1>
+          <h1>{user.name}</h1>
           <S.WrapperProfileUsername>
             <h3>Username:</h3>
-            <a
-              href="https://github.com/alexandresantosm"
-              target="_blank"
-              rel="noreferrer"
-            >
-              alexandresantosm
+            <a href={user.publicUrl} target="_blank" rel="noreferrer">
+              {user.login}
             </a>
           </S.WrapperProfileUsername>
         </div>
@@ -28,17 +28,22 @@ export const Profile = () => {
         <S.WrapperProfileStatusCount>
           <S.WrapperProfileStatus>
             <h4>Followers</h4>
-            <span>5</span>
+            <span>{user.followers}</span>
           </S.WrapperProfileStatus>
 
           <S.WrapperProfileStatus>
             <h4>Following</h4>
-            <span>7</span>
+            <span>{user.following}</span>
           </S.WrapperProfileStatus>
 
           <S.WrapperProfileStatus>
-            <h4>Starred</h4>
-            <span>4</span>
+            <h4>Gists</h4>
+            <span>{user.publicGists}</span>
+          </S.WrapperProfileStatus>
+
+          <S.WrapperProfileStatus>
+            <h4>Repos</h4>
+            <span>{user.publicRepos}</span>
           </S.WrapperProfileStatus>
         </S.WrapperProfileStatusCount>
       </S.WrapperProfileUserInfo>
