@@ -9,10 +9,7 @@ export const Profile = () => {
 
   return (
     <S.WrapperProfile>
-      <S.WrapperProfileImage
-        src="https://avatars.githubusercontent.com/u/43150037?v=4"
-        alt="Avatar of user"
-      />
+      <S.WrapperProfileImage src={user.avatarUrl} alt="Avatar of user" />
 
       <S.WrapperProfileUserInfo>
         <div>
@@ -23,6 +20,23 @@ export const Profile = () => {
               {user.login}
             </a>
           </S.WrapperProfileUsername>
+
+          <S.WrapperProfileCompany>
+            <h3>Company:</h3>
+            <span>{user.company}</span>
+          </S.WrapperProfileCompany>
+
+          <S.WrapperProfileLocation>
+            <h3>Location:</h3>
+            <span>{user.location}</span>
+          </S.WrapperProfileLocation>
+
+          <S.WrapperProfileBlog>
+            <h3>Blog:</h3>
+            <a href={user.blog} target="_blank" rel="noreferrer">
+              {user.blog}
+            </a>
+          </S.WrapperProfileBlog>
         </div>
 
         <S.WrapperProfileStatusCount>
