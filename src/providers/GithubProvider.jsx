@@ -10,6 +10,7 @@ export const GithubContext = createContext({
 
 export const GithubProvider = ({ children }) => {
   const initialGithubState = {
+    hasUser: false,
     isLoading: false,
     user: {
       login: "",
@@ -41,6 +42,7 @@ export const GithubProvider = ({ children }) => {
       .then(({ data }) => {
         setGithubState((prevState) => ({
           ...prevState,
+          hasUser: true,
           user: {
             login: data.login,
             name: data.name,
