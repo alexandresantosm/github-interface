@@ -1,25 +1,26 @@
 import { Layout } from "./components/Layout";
 import { Profile } from "./components/Profile";
 import { Repositories } from "./components/Repositories";
-import { GithubProvider } from "./providers/GithubProvider";
-
-import { GlobalStyles } from "./styles/global";
+import { useGithub } from "./hooks/GithubHooks";
 
 function App() {
+  const { githubState } = useGithub();
+
+  function renderLoading() {
+    return <p>Loading...</p>;
+  }
+
+  function renderContent() {
+    return (
+      <>
+        <Profile />
+        <Repositories />
+      </>
+    );
+  }
+
   return (
-    <>
-      <main>
-        <GithubProvider>
-          <Layout>
-            <Profile />
-
-            <Repositories />
-          </Layout>
-        </GithubProvider>
-      </main>
-
-      <GlobalStyles />
-    </>
+    <Layout>{githubState.isLoading ? renderLoading() : renderContent()}</Layout>
   );
 }
 
