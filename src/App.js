@@ -1,5 +1,6 @@
 import { Layout } from "./components/Layout";
 import { Profile } from "./components/Profile";
+import { Repositories } from "./components/Repositories";
 
 import { GlobalStyles } from "./styles/global";
 
@@ -10,9 +11,7 @@ function App() {
         <Layout>
           <Profile />
 
-          <div>Repositories</div>
-
-          <div>Starred</div>
+          <Repositories />
         </Layout>
       </main>
 
