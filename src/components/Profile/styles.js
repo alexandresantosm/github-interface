@@ -6,9 +6,9 @@ export const WrapperProfile = styled.div`
 `;
 
 export const WrapperProfileImage = styled.img`
-  border-radius: 50%;
   width: 12rem;
   height: 12rem;
+  border-radius: 50%;
   margin: 0.5rem;
 `;
 
@@ -30,7 +30,22 @@ export const WrapperProfileUsername = styled(WrapperProfile)`
   }
 `;
 
-export const WrapperProfileStatusCount = styled(WrapperProfile)``;
+export const WrapperProfileCompany = styled(WrapperProfile)`
+  align-items: center;
+  margin-top: 0.5rem;
+
+  span {
+    margin-left: 0.5rem;
+  }
+`;
+
+export const WrapperProfileLocation = styled(WrapperProfileCompany)``;
+
+export const WrapperProfileBlog = styled(WrapperProfileUsername)``;
+
+export const WrapperProfileStatusCount = styled(WrapperProfile)`
+  margin: 0.5rem;
+`;
 
 export const WrapperProfileStatus = styled(WrapperProfile)`
   flex-direction: column;
