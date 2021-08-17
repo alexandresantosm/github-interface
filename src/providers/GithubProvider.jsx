@@ -13,6 +13,7 @@ export const GithubProvider = ({ children }) => {
     user: {
       login: "",
       name: "",
+      avatarUrl: "",
       blog: "",
       company: "",
       location: "",
@@ -35,6 +36,7 @@ export const GithubProvider = ({ children }) => {
         user: {
           login: data.login,
           name: data.name,
+          avatarUrl: data.avatar_url,
           blog: data.blog,
           company: data.company,
           location: data.location,
