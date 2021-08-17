@@ -57,5 +57,23 @@ export const GlobalStyles = createGlobalStyle`
   [disabled] {
     opacity: 0.6;
     cursor: not-allowed;
-  } 
+  }
+
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+
+  main {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+  }
+
+  #root {
+    width: 100%;
+    height: 100%;
+  }
 `;
