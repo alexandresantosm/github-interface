@@ -34,11 +34,11 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 
   h3 {
-    font-size: 1.75rem;
+    font-size: 1.25rem;
   }
 
   h4 {
