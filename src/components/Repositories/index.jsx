@@ -1,4 +1,5 @@
 import React from "react";
+import { RepositoryItem } from "../RepositoryItem";
 
 import * as S from "./styles";
 
@@ -12,10 +13,18 @@ export const Repositories = () => {
         </S.WrapperTabList>
 
         <S.WrapperTabPanel>
-          <p>Repositories</p>
+          <RepositoryItem
+            name="01-github-explorer"
+            fullname="alexandresantosm/01-github-explorer"
+            linkToRepo="https://github.com/alexandresantosm/01-github-explorer"
+          />
         </S.WrapperTabPanel>
         <S.WrapperTabPanel>
-          <p>Starred</p>
+          <RepositoryItem
+            name="alura-imersao-react-alurakut"
+            fullname="alexandresantosm/alura-imersao-react-alurakut"
+            linkToRepo="https://github.com/alexandresantosm/alura-imersao-react-alurakut"
+          />
         </S.WrapperTabPanel>
       </S.WrapperTabs>
     </S.WrapperRepositories>
