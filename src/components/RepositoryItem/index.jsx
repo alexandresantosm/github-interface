@@ -5,11 +5,15 @@ import * as S from "./styles";
 export const RepositoryItem = ({ name, fullname, linkToRepo }) => {
   return (
     <S.WrapperRepositoryItem>
-      <h2>{name}</h2>
-      <h4>full name:</h4>
-      <a href={linkToRepo} target="_blank" rel="noreferrer">
+      <S.WrapperRepositoryTitle>{name}</S.WrapperRepositoryTitle>
+      <S.WrapperRepositoryFullName>full name:</S.WrapperRepositoryFullName>
+      <S.WrapperRepositoryLink
+        href={linkToRepo}
+        target="_blank"
+        rel="noreferrer"
+      >
         {fullname}
-      </a>
+      </S.WrapperRepositoryLink>
     </S.WrapperRepositoryItem>
   );
 };
