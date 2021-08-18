@@ -1,32 +1,78 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useGithub } from "../../hooks/GithubHooks";
 import { RepositoryItem } from "../RepositoryItem";
 
 import * as S from "./styles";
 
 export const Repositories = () => {
-  return (
-    <S.WrapperRepositories>
-      <S.WrapperTabs>
-        <S.WrapperTabList>
-          <S.WrapperTab>Repositories</S.WrapperTab>
-          <S.WrapperTab>Starred</S.WrapperTab>
-        </S.WrapperTabList>
+  const [hasUserForSearchRepos, setHasUserForSearchRepos] = useState();
 
-        <S.WrapperTabPanel>
+  const { githubState, getUserRepos, getUserStarred } = useGithub();
+
+  useEffect(() => {
+    if (githubState.user.login) {
+      getUserRepos(githubState.user.login);
+      getUserStarred(githubState.user.login);
+    }
+
+    setHasUserForSearchRepos(githubState.repositories);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [githubState.user.login]);
+
+  const renderRepositoriesItem = () => {
+    return (
+      <>
+        {githubState.repositories.map((repo) => (
           <RepositoryItem
-            name="01-github-explorer"
-            fullname="alexandresantosm/01-github-explorer"
-            linkToRepo="https://github.com/alexandresantosm/01-github-explorer"
+            key={repo.id}
+            name={repo.name}
+            fullname={repo.full_name}
+            linkToRepo={repo.html_url}
           />
-        </S.WrapperTabPanel>
-        <S.WrapperTabPanel>
+        ))}
+      </>
+    );
+  };
+
+  const renderStarredItem = () => {
+    return (
+      <>
+        {githubState.starred.map((starred) => (
           <RepositoryItem
-            name="alura-imersao-react-alurakut"
-            fullname="alexandresantosm/alura-imersao-react-alurakut"
-            linkToRepo="https://github.com/alexandresantosm/alura-imersao-react-alurakut"
+            key={starred.id}
+            name={starred.name}
+            fullname={starred.full_name}
+            linkToRepo={starred.html_url}
           />
-        </S.WrapperTabPanel>
-      </S.WrapperTabs>
-    </S.WrapperRepositories>
-  );
+        ))}
+      </>
+    );
+  };
+
+  const renderContent = () => {
+    return (
+      <S.WrapperRepositories>
+        <S.WrapperTabs>
+          <S.WrapperTabList>
+            <S.WrapperTab>Repositories</S.WrapperTab>
+            <S.WrapperTab>Starred</S.WrapperTab>
+          </S.WrapperTabList>
+
+          <S.WrapperTabPanel>
+            <S.WrapperList>{renderRepositoriesItem()}</S.WrapperList>
+          </S.WrapperTabPanel>
+          <S.WrapperTabPanel>
+            <S.WrapperList>{renderStarredItem()}</S.WrapperList>
+          </S.WrapperTabPanel>
+        </S.WrapperTabs>
+      </S.WrapperRepositories>
+    );
+  };
+
+  const renderNoContent = () => {
+    return <></>;
+  };
+
+  return <>{hasUserForSearchRepos ? renderContent() : renderNoContent()}</>;
 };
